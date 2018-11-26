@@ -1,0 +1,13 @@
+Creo la imagen
+docker build -t minginx .
+
+-t para una terminal
+docker run -d -t  minginx
+
+docker ps para ver el contenedor -> nombres
+docker exec -ti nombreContenedor /bin/bash
+
+bindear
+docker run -d -t -p 5555:80 minginx
+
+-p puertoHost:puertoContenedor

@@ -1,0 +1,43 @@
+Ctrl+* ampliar / Ctrl+- reducir terminal
+
+Ver imagenes:
+docker images
+
+Nos bajamos la imagen del repo:
+docker pull mysql:latest
+
+Ahora nuestra imagen de MySQL está presente:
+docker images
+
+Pero no hay ningun contenedor corriendo:
+docker ps -a
+
+Arrancamos nuestro contenedor
+docker run --name miDB -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=orders -d mysql:latest
+--name => asignacion de nombre
+-e => variables de entorno
+-d => detached
+mysql:latest => imagen:version
+
+Lo vemos:
+docker ps
+
+Inspeccionamos:
+docker inspect miDB
+
+Entramos
+ mysql -h 172.17.0.2  -u root -p
+
+ show databases; => está de la compras que hemos indicado ya creada
+
+use orders;
+show tables;
+
+ create table users ( id int primary key, name varchar(100), lastname varchar(200) );
+ describe users;
+
+Lo paramos:
+ docker stop miDB
+ docker ps
+Volvemos a arrancar y entramos para ver que los datos no se han perdido
+ docker start miDB
