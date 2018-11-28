@@ -1,0 +1,17 @@
+version: '3'
+services:
+  back:
+    build: back/.
+    ports:
+      - 8888:80
+  front:
+    build: front/.
+    ports:
+      - 7777:80
+
+  # db:
+  #   image: "mysql:latest"
+  #   environment: 
+  #     - MYSQL_ROOT_PASSWORD=1234
+  #     - MYSQL_DATABASE=tasks
+  

@@ -1,0 +1,5 @@
+explicar el docker compose
+cada uno de los dockers file
+el bindeo de puertos
+docker-compose up
+interfaz de red, ambos contenedores

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Tasks</h1>
+        <ul id="tasks"></ul>
+        <script>
+
+            function httpGetAsync(theUrl, callback)
+            {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() { 
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                        callback(xmlHttp.responseText);
+                }
+                xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+                xmlHttp.send(null);
+            }
+
+            function paintTasks(textContent){
+                var json = JSON.parse(textContent);
+                var tasks = document.getElementById("tasks");
+
+                for(var i=0;i<json.length;i++){
+                    var child = document.createElement("li");
+                    child.innerHTML = json[i].content;
+                    tasks.appendChild(child)
+                }
+                
+            }
+
+            httpGetAsync("http://localhost:8888/task",paintTasks);
+        
+        </script>
+    </body>    
+</html>
