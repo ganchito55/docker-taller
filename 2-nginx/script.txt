@@ -7,6 +7,11 @@ docker run -d -t  minginx
 docker ps para ver el contenedor -> nombres
 docker exec -ti nombreContenedor /bin/bash
 
+arrancar nginx con:
+service nginx start
+
+Descomentar el autoarranque y mostrar la compilación por capas
+
 bindear
 docker run -d -t -p 5555:80 minginx
 

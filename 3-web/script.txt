@@ -2,4 +2,8 @@ explicar el docker compose
 cada uno de los dockers file
 el bindeo de puertos
 docker-compose up
-interfaz de red, ambos contenedores
+interfaz de red, ambos contenedores (sudo ifconfig)
+
+si se vuelve a la lanzar se reutiliza la imagen, para forzar 
+la construcción de una nueva imagen o su actualización hay que usar
+docker-compose up --build
